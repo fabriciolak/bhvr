@@ -9,7 +9,7 @@ function App() {
   async function sendRequest() {
     try {
       // Use relative path - works in both dev and production
-      const req = await fetch("/api/hello");
+      const req = await fetch("/api/v1/health");
       const res: ApiResponse = await req.json();
       setData(res);
     } catch (error) {
