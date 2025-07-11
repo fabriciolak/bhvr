@@ -16,7 +16,7 @@ app.get("/api", (c) => {
  
 app.get("/api/hello", async (c) => {
   const data: ApiResponse = {
-    message: "Hello BHVR!",
+    message: "Hello BHVR(?)!",
     success: true,
   };
   return c.json(data, { status: 200 });
