@@ -9,7 +9,10 @@ router.get('/health', (req, res) => {
     date: new Date()
   }
 
-  res.status(200).send({...data, origin: "express"})
+  res.status(200).send({
+    ...data,
+    origin: "express"
+  })
 })
 
 export default router;
