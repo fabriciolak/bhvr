@@ -2,7 +2,8 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { serveStatic } from "hono/bun";
 import type { ApiResponse } from "shared/dist";
- 
+import { createCanvas, loadImage } from 'canvas';
+
 const app = new Hono();
  
 // CORS is optional for single origin deployment
@@ -42,7 +43,7 @@ app.post('/generate-image', async (c) => {
   const ctx = canvas.getContext('2d');
 
   // Carrega uma imagem de fundo (substitua pelo caminho da sua imagem)
-  const background = await "https://images.unsplash.com/photo-1752035197224-6e6bdc4f7fb1?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  const background = await loadImage("https://images.unsplash.com/photo-1752035197224-6e6bdc4f7fb1?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   ctx.drawImage(background, 0, 0, 500, 500);
 
   // Configura o texto
