@@ -14,7 +14,8 @@
     "dotenv": "^17.2.0",
     "shared": "workspace:*",
     "tsup": "^8.5.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "canvas": "3.1.2"
   },
   "private": true,
   "dependencies": {
