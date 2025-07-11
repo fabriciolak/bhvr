@@ -42,15 +42,14 @@ app.post('/generate-image', async (c) => {
   const canvas = createCanvas(500, 500);
   const ctx = canvas.getContext('2d');
 
-  // Carrega uma imagem de fundo (substitua pelo caminho da sua imagem)
-  const background = await loadImage("https://images.unsplash.com/photo-1752035197224-6e6bdc4f7fb1?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-  ctx.drawImage(background, 0, 0, 500, 500);
-
-  // Configura o texto
+ // Configura o texto
   ctx.font = `${fontSize}px Arial`;
   ctx.fillStyle = color;
   ctx.fillText(text, x, y);
-
+ 
+  // Carrega uma imagem de fundo (substitua pelo caminho da sua imagem)
+  const background = await loadImage("https://images.unsplash.com/photo-1752035197224-6e6bdc4f7fb1?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  ctx.drawImage(background, 0, 0, 500, 500);
   // Converte o canvas para buffer (PNG)
   const buffer = canvas.toBuffer('image/png');
 
