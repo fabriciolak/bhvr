@@ -20,4 +20,8 @@ app.get('/hello', async (c) => {
   return c.json(data, { status: 200 })
 })
 
-export default app
+export default { 
+  port: Number(process.env.PORT) || 3000, 
+  hostname: '0.0.0.0', 
+  fetch: app.fetch, 
+};
